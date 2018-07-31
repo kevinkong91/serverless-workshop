@@ -34,7 +34,7 @@ const handler = (event, context, callback) => {
     const sourceKey = decodeURIComponent(key.replace(/\+/g, ' '));
 
     // Remove the file extension
-    const outputKey = sourceKey.split('.')[0];
+    const outputKey = sourceKey.substring(0, sourceKey.lastIndexOf('.'));
 
     // Build the parameters for the Job pipeline. 
     // Reference: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticTranscoder.html#createJob-property
