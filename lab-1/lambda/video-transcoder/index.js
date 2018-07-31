@@ -60,16 +60,24 @@ const handler = (event, context, callback) => {
         },
         Outputs: [
             {
-                Key: outputKey + '-1080p' + '.mp4',
+                Key: outputKey + '-mp4' + '-1080p' + '.mp4',
                 PresetId: '1351620000001-000001' //Generic 1080p
             },
             {
-                Key: outputKey + '-720p' + '.mp4',
+                Key: outputKey + '-mp4'  + '-720p' + '.mp4',
                 PresetId: '1351620000001-000010' //Generic 720p
             },
             {
-                Key: outputKey + '-web-720p' + '.mp4',
+                Key: outputKey + '-mp4'  + '-web-720p' + '.mp4',
                 PresetId: '1351620000001-100070' //Web Friendly 720p
+            },
+            {
+                Key: outputKey + '-webm' + '.webm',
+                PresetId: '1351620000001–100240', //Webm 720p
+            },
+            {
+                Key: outputKey + '-hls' + '.ts',
+                PresetId: '1351620000001–200010'  //HLS v3 2mb/s
             }
     ]};
 
