@@ -34,7 +34,21 @@ const handler = (event, context, callback) => {
     const sourceKey = decodeURIComponent(key.replace(/\+/g, ' '));
 
     // Remove the file extension
-    const outputKey = sourceKey.substring(0, sourceKey.lastIndexOf('.'));
+    const outputKey = sourceKey.substring(0, sourceKey.lastIndexOf('.'))
+    const fileExtension = sourceKey.substring(sourceKey.lastIndexOf('.'), sourceKey.length)
+
+    // Filter out non-video files
+    switch (fileExtension) {
+        case 'mov':
+        case 'mp4':
+        case 'mkv':
+        case 'avi':
+            continue
+            break
+        default:
+            // Failure
+            deleteFile(sourceKey)
+    }
 
     // Build the parameters for the Job pipeline. 
     // Reference: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticTranscoder.html#createJob-property
@@ -78,6 +92,22 @@ const handler = (event, context, callback) => {
         });
 
 };
+
+function deleteFile(key) {
+    var bucketInstance = new AWS.S3();
+    var params = {
+        Bucket: 'acloudguru-serverless-workshop-video-upload',
+        Key: key
+    };
+    bucketInstance.deleteObject(params, function (err, data) {
+        if (data) {
+            console.log("File deleted successfully");
+        }
+        else {
+            console.log("Check if you have sufficient permissions : "+err);
+        }
+    });
+}
 
 
 module.exports = {
