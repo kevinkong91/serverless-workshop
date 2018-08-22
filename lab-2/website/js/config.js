@@ -1,6 +1,6 @@
 var configConstants = {
     auth0: {
-        domain: 'YOUR_AUTH0_DOMAIN_HERE',
-        clientId: 'YOUR_AUTH0_CLIENT_ID_HERE'
+        domain: 'ckk-serverless-youtube.auth0.com',
+        clientId: '-0YH9a2f1Ij2nc9YLqU2gYgYtkmm7_ow'
     }
 };
