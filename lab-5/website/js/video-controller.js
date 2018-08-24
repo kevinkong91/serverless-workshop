@@ -63,12 +63,14 @@ var videoController = {
         var that = this;
 
         /* PASTE CONFIG HERE */
-        // var config = {
-        //   apiKey: "",
-        //   authDomain: "",
-        //   databaseURL: "",
-        //   storageBucket: "",
-        // };
+        var config = {
+            apiKey: "AIzaSyDYq6RX8vEWMMszp7cNhSkv4xgzyzw02uY",
+            authDomain: "acloudguru-serverless.firebaseapp.com",
+            databaseURL: "https://acloudguru-serverless.firebaseio.com",
+            projectId: "acloudguru-serverless",
+            storageBucket: "acloudguru-serverless.appspot.com",
+            messagingSenderId: "816961603121"
+        };
 
         firebase.initializeApp(config);
 
